@@ -16,7 +16,6 @@ class CreateEtatTrajetsTable extends Migration
         Schema::create('etat_trajets', function (Blueprint $table) {
             $table->id(column:"etat_id");
             $table->string(column:"libelle");
-            $table->timestamps();
         });
     }
 
