@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UtilisateurController;
+use App\Http\Controllers\AccueilController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('template');
-});
+
+Route::get('/', [AccueilController::class,'accueil'])->name('accueil');
+Route::get('/Utilisateurs/consultUtilisateurs' , [UtilisateurController::class, 'consultUtilisateurs'])->name('consultUtilisateurs');
+Route::get('/Utilisateurs/modifSuppUtilisateur/{id}' , [UtilisateurController::class, 'modifSuppUtilisateur'])-> whereNumber('id')->name('modifSuppUtilisateur');
