@@ -14,14 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('template');
-});
 
 Route::get('/Annonces', [AnnonceCovoitController::class, 'index'])->name('ConsultationAnnnonces');
 Route::get('/Annonces/Rechercher', [AnnonceCovoitController::class, 'rechercher'])->name('ConsultationAnnnonces2');
 
 Route::get('/Annonces/Rechercher', [AnnonceCovoitController::class, 'RecupVilles'])->name('recupVille');
-//Route::get('/Annonces/Rechercher', [AnnonceCovoitController::class, 'RecupVilles2'])->name('recupVille2');
+
 
 Route::post('/Annonces', [AnnonceCovoitController::class, 'index'])->name('annonces.rechercher');
