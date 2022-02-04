@@ -15,8 +15,7 @@ use App\Http\Controllers\AccueilController;
 |
 */
 
-Route::get('/', function () {
-    return view('/Accueil/accueil');
-});
-Route::get('/Utilisateurs/consultUtilisateurs' , [UtilisateurController::class, 'consultUtilisateurs']);
-Route::get('/Utilisateurs/modifSuppUtilisateur/{id}' , [UtilisateurController::class, 'modifSuppUtilisateur'])-> whereNumber('id');
+
+Route::get('/', [AccueilController::class,'accueil'])->name('accueil');
+Route::get('/Utilisateurs/consultUtilisateurs' , [UtilisateurController::class, 'consultUtilisateurs'])->name('consultUtilisateurs');
+Route::get('/Utilisateurs/modifSuppUtilisateur/{id}' , [UtilisateurController::class, 'modifSuppUtilisateur'])-> whereNumber('id')->name('modifSuppUtilisateur');

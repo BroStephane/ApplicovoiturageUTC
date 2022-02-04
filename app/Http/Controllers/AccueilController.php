@@ -9,6 +9,6 @@ class AccueilController extends Controller
 {
     public function accueil()
     {
-        return view ('accueil');
+        return view ('/Accueil/accueil');
     }
 }
