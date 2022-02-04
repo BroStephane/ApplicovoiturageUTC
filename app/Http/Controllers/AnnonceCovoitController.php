@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class ConsultationAnnonceCovoitController extends Controller
+class AnnonceCovoitController extends Controller
 {
     public function index(Request $request)
     {
@@ -19,7 +19,16 @@ class ConsultationAnnonceCovoitController extends Controller
             ->join('villes AS V2', 'Trajets.ville_id_arrivee', '=','V2.ville_id')//jointure avec la table villes pour obtenir la ville d'arrivée
             ->select('date_de_publication','nb_passager','date_heure_depart', 'adresse_depart', //récupération des données souhaiter
             'adresse_arrivee','V1.ville_nom_reel AS VilleDepart','V2.ville_nom_reel AS VilleArrivee')
-            
+            ->when($villeDepart,function($query,$villeDepart){
+                return $query->where('V1.ville_nom_reel','like', $villeDepart);
+            })
+            ->when($villeDepart,function($query,$villeDepart){
+                return $query->where('V1.ville_nom_reel','like', $villeDepart);
+            })
+            /*
+            ->where('VilleDepart','like', '%{$villeDepart}%')
+            ->orWhere('VilleArrivee','like', '%{$villeArrivee}%')
+            */
             ->get();
 
             return view('Annonces/ConsultationAnnonceCovoit',[

@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\ConsultationAnnonceCovoitController;
+use App\Http\Controllers\AnnonceCovoitController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +18,6 @@ Route::get('/', function () {
     return view('template');
 });
 
-Route::get('/Annonces', [ConsultationAnnonceCovoitController::class, 'index'])->name('ConsultationAnnnonces');
-Route::get('/Annonces/Rechercher', [ConsultationAnnonceCovoitController::class, 'rechercher'])->name('ConsultationAnnnonces2');
-Route::post('/Annonces', [ConsultationAnnonceCovoitController::class, 'index'])->name('annonces.rechercher');
+Route::get('/Annonces', [AnnonceCovoitController::class, 'index'])->name('ConsultationAnnnonces');
+Route::get('/Annonces/Rechercher', [AnnonceCovoitController::class, 'rechercher'])->name('ConsultationAnnnonces2');
+Route::post('/Annonces', [AnnonceCovoitController::class, 'index'])->name('annonces.rechercher');
