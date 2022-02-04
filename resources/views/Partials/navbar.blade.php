@@ -1,6 +1,6 @@
 <!-- Première navbar  -->
 <nav class="navbar navbar-light bg-primary">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="{{ route ('accueil') }}">
       <img src="/images/sigle_UTC__1_-removebg-preview.png" width="50" height="40" class="d-inline-block align-top" alt="">
       UTCovoit
     </a>
@@ -15,7 +15,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/Utilisateurs/consultUtilisateurs">Gestion utilisateur</a>
+            <a class="nav-link active" aria-current="page" href="{{ route('consultUtilisateurs') }}">Gestion utilisateur</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Link</a>
