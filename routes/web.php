@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnnonceCovoitController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UtilisateurController;
 use App\Http\Controllers\AccueilController;
@@ -16,6 +17,15 @@ use App\Http\Controllers\AccueilController;
 */
 
 
+
+Route::get('/Annonces', [AnnonceCovoitController::class, 'index'])->name('ConsultationAnnnonces');
+Route::get('/Annonces/Rechercher', [AnnonceCovoitController::class, 'rechercher'])->name('ConsultationAnnnonces2');
+
+Route::get('/Annonces/Rechercher', [AnnonceCovoitController::class, 'RecupVilles'])->name('recupVille');
+
+
+Route::post('/Annonces', [AnnonceCovoitController::class, 'index'])->name('annonces.rechercher');
 Route::get('/', [AccueilController::class,'accueil'])->name('accueil');
 Route::get('/Utilisateurs/consultUtilisateurs' , [UtilisateurController::class, 'consultUtilisateurs'])->name('consultUtilisateurs');
 Route::get('/Utilisateurs/modifSuppUtilisateur/{id}' , [UtilisateurController::class, 'modifSuppUtilisateur'])-> whereNumber('id')->name('modifSuppUtilisateur');
+
