@@ -46,7 +46,8 @@
   </div>
 </nav>
 
-    <h1>Salut ! Bienvenu sur notre site UTCovoit</h1>
+    <h1>Salut ! Bienvenue sur notre site UTCovoit</h1>
+    
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

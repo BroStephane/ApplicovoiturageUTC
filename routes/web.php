@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ConsultationAnnonceCovoitController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('template');
 });
+
+Route::get('/Annonces', [ConsultationAnnonceCovoitController::class, 'index'])->name('ConsultationAnnnonces');
+Route::get('/Annonces/Rechercher', [ConsultationAnnonceCovoitController::class, 'rechercher'])->name('ConsultationAnnnonces2');
+Route::post('/Annonces', [ConsultationAnnonceCovoitController::class, 'index'])->name('annonces.rechercher');
