@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Trajets;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\Villes;
 use Illuminate\Http\Request;
 
 class AnnonceCovoitController extends Controller
@@ -32,16 +33,36 @@ class AnnonceCovoitController extends Controller
             ->get();
 
             return view('Annonces/ConsultationAnnonceCovoit',[
-                "trajets" => $trajets //envoie dans la vue de la requete
+                "trajets" => $trajets //envoie de la requete dans la vue
             ]);
          
     }
 
     public function rechercher()
     {
-        return view('Annonces/RechercherAnnonces');
+        return view('Accueil/RechercherAnnonces');
     }
 
-    
-    
+    public function RecupVilles()
+    {
+        $villes = DB::table('Villes')
+        ->select('ville_nom_reel','ville_departement')
+        ->where('ville_departement','=' ,60)
+        ->orWhere('ville_departement','=' ,80)
+        ->orWhere('ville_departement','=' ,02)
+        ->orWhere('ville_departement','=' ,59)
+        ->orderBy('ville_nom_reel','ASC')
+        ->orderBy('ville_nom_reel','ASC')
+        ->get();
+
+        return view('Accueil/RechercherAnnonces',[
+            "villes" => $villes //envoie de la requete dans la vue
+        ]);
+        
+
+        
+
+    }
+       
 }
+

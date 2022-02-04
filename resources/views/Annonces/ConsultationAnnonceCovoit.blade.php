@@ -12,7 +12,7 @@
     <!--@include('template')-->
     @if ($trajets->count()>0)<!-- on vérifie qu'il existe bien des trajets-->
         @foreach ($trajets as $trajet) <!--on boucle sur $trajet pour récuperer tous les trajets-->
-        <div id="Annonces" class="bg-blue">
+        <div id="Annonces" >
             <h3>Adresse de départ : {{ $trajet->adresse_depart}} à {{ $trajet->VilleDepart}} <br> 
                 Date et heure de départ : {{ $trajet->date_heure_depart}} <br>
                  Adresse arrivée : {{ $trajet->adresse_arrivee}} à {{ $trajet->VilleArrivee}} <br>
