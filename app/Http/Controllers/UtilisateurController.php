@@ -12,23 +12,23 @@ class UtilisateurController extends Controller
     public function consultUtilisateurs()
     {
         $utilisateurs = DB::table('utilisateurs')
-        ->join('sexes', 'utilisateurs.sexe_id', '=', 'sexes.sexe_id')
-        ->join('fonctions', 'utilisateurs.fonction_id', '=', 'fonctions.fonction_id')
-        ->join('etat_comptes', 'utilisateurs.etat_compte_id', '=', 'etat_comptes.etat_compte_id')
-        ->select( 'utilisateurs.nom', 'utilisateurs.prenom', 'utilisateurs.pseudo', 'sexes.sexe_libelle AS sexe', 'fonctions.fonction_libelle AS fonction',
-                'etat_comptes.etat_compte_libelle as etat_compte','utilisateurs.utilisateur_id AS id' )
-        ->get();
+            ->join('sexes', 'utilisateurs.sexe_id', '=', 'sexes.sexe_id')
+            ->join('fonctions', 'utilisateurs.fonction_id', '=', 'fonctions.fonction_id')
+            ->join('etat_comptes', 'utilisateurs.etat_compte_id', '=', 'etat_comptes.etat_compte_id')
+            ->select(
+                'utilisateurs.nom',
+                'utilisateurs.prenom',
+                'utilisateurs.pseudo',
+                'sexes.sexe_libelle AS sexe',
+                'fonctions.fonction_libelle AS fonction',
+                'etat_comptes.etat_compte_libelle as etat_compte',
+                'utilisateurs.utilisateur_id AS id'
+            )
+            ->get();
 
-        return view('Utilisateurs/consultUtilisateurs',[
-            'utilisateurs'=> $utilisateurs
+        return view('Utilisateurs/consultUtilisateurs', [
+            'utilisateurs' => $utilisateurs
         ]);
-
-
-        /*$users = DB::table('users')
-        ->join('contacts', 'users.id', '=', 'contacts.user_id')
-        ->join('orders', 'users.id', '=', 'orders.user_id')
-        ->select('users.*', 'contacts.phone', 'orders.price')
-        ->get();*/
     }
 
     public function modifSuppUtilisateur($id)
@@ -37,9 +37,9 @@ class UtilisateurController extends Controller
 
         $utilisateur = Utilisateurs::find($id);
 
-       // $utilisateur = $utilisateurs[$id] ?? 'L\'utilisateur n\'éxiste pas';
+        // $utilisateur = $utilisateurs[$id] ?? 'L\'utilisateur n\'éxiste pas';
 
-        return view ('Utilisateurs/modifSuppUtilisateur',[
+        return view('Utilisateurs/modifSuppUtilisateur', [
             'utilisateur' => $utilisateur
         ]);
     }
