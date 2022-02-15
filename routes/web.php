@@ -18,6 +18,8 @@ use App\Http\Controllers\AccueilController;
 
 Route::get('/', [AccueilController::class, 'accueil'])->name('accueil');
 Route::get('/Utilisateurs/consultUtilisateurs', [UtilisateurController::class, 'consultUtilisateurs'])->name('consultUtilisateurs');
-Route::post('/Utilisateurs/ajoutUtilisateur', [UtilisateurController::class, 'ajoutUtilisateurTrait'])->name('ajoutUtilisateurTrait');
+
 Route::get('/Utilisateurs/ajoutUtilisateur', [UtilisateurController::class, 'ajoutUtilisateur'])->name('ajoutUtilisateur');
+Route::post('/Utilisateurs/ajoutUtilisateur', [UtilisateurController::class, 'ajoutUtilisateurTrait'])->name('ajoutUtilisateurTrait');
+
 Route::get('/Utilisateurs/modifSuppUtilisateur/{id}', [UtilisateurController::class, 'modifSuppUtilisateur'])->whereNumber('id')->name('modifSuppUtilisateur');

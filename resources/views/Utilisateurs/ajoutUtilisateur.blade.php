@@ -3,13 +3,14 @@
 @section('contenu')
 <h6>Creer un nouvel utilisateur</h6>
 
-<form method =="AJOUTUTIL" action="{{ route('ajoutUtilisateurTrait') }}">
+<form method ="POST" action="{{ route('ajoutUtilisateurTrait') }}">
     @csrf
     Nom: <input type = "text" name="nom" >
     Prenom :<input type = "text" name="prenom">
     Pseudo: <input type = "text" name="pseudo">
     Mail: <input type = "text" name="mail">
     Numéro de téléphone: <input type = "text" name="num_tel">
+    Mot de passe: <input type = "text" name="mot_de_passe">
   
     Sexe:
 <select id="sexe">
