@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Utilisateurs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Sexe;
+use App\Models\Etat_comptes;
 
 use function Symfony\Component\String\b;
 
@@ -60,7 +62,7 @@ class UtilisateurController extends Controller
             ->where('id', '=', $id)
             ->get();
 
-        // $utilisateur = $utilisateurs[$id] ?? 'L\'utilisateur n\'éxiste pas';
+        //$utilisateur = $utilisateurs[$id] ?? 'L\'utilisateur n\'éxiste pas';
         #renvoi la vue modifSuppUtilisateur
         return view('Utilisateurs/modifSuppUtilisateur', [
             'utilisateur' => $utilisateur
@@ -69,7 +71,17 @@ class UtilisateurController extends Controller
 
     public function ajoutUtilisateur()
     {
-        return view('Utilisateurs/ajoutUtilisateur');
+        #On récupère le contenu des tables sexes et etat_comptes pour le trasferer dans la vu pour les listes déroulante
+        $sexes = DB::table('sexes')
+            ->select('sexe_id', 'sexe_libelle')
+            ->get();
+        $etat_comptes = DB::table('etat_comptes')
+            ->select('etat_compte_id', 'etat_compte_libelle')
+            ->get();
+
+        return view('Utilisateurs/ajoutUtilisateur', [
+            'sexes' => $sexes, 'etat_comptes' => $etat_comptes
+        ]);
     }
 
     public function ajoutUtilisateurTrait(Request $request)
