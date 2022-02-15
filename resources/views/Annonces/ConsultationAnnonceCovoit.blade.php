@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <title>Document</title>
-</head>
-<body>
-    <!--@include('template')-->
+@extends('Layouts.app')
+
+@section('contenu')
     @if ($trajets->count()>0)<!-- on vérifie qu'il existe bien des trajets-->
         @foreach ($trajets as $trajet) <!--on boucle sur $trajet pour récuperer tous les trajets-->
         <div id="Annonces" >
@@ -24,9 +15,4 @@
         <span>Aucun covoiturage disponnible</span>
     @endif
     
-    <h3></h3>
-    <script src="{{ asset('js/app.js') }}"></script> 
-
-    
-</body>
-</html>
+    @endsection
