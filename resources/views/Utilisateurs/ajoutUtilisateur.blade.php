@@ -12,12 +12,24 @@
     Numéro de téléphone: <input type = "text" name="num_tel">
     Mot de passe: <input type = "text" name="mot_de_passe">
   
-    Sexe:
-<select id="sexe">
-    <option value="1">Homme</option>
-    <option value="2">Femme</option>
-    <option value="3" selected>Ne pas préciser</option>
-  </select>
+<select name="sexes" id="sexes">
+  <option value="" selected>selectionnez un sexe</option>
+  @foreach ($sexes as $sexe)
+      <option value="{{ $sexe->sexe_libelle }}" >{{ $sexe->sexe_libelle }}</option>
+      
+  @endforeach
+  
+</select>
+<select name="etat_compte" id="etat_compte">
+  <option value="" selected>selectionnez un etat</option>
+  @foreach ($etat_comptes as $etat_comptes)
+      <option value="{{ $etat_comptes->etat_compte_libelle }}" >{{ $etat_comptes->etat_compte_libelle }}</option>
+      
+  @endforeach
+  
+</select>
+  
+
 
     <button type="submit">Créer</button>
 </form>
