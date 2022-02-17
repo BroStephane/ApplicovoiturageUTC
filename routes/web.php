@@ -23,4 +23,4 @@ Route::get('/Utilisateurs/ajoutUtilisateur', [UtilisateurController::class, 'ajo
 Route::post('/Utilisateurs/ajoutUtilisateur', [UtilisateurController::class, 'ajoutUtilisateurTrait'])->name('ajoutUtilisateurTrait');
 
 Route::get('/Utilisateurs/modifSuppUtilisateur/{id}', [UtilisateurController::class, 'modifSuppUtilisateur'])->whereNumber('id')->name('modifSuppUtilisateur');
-Route::get('/Utilisateurs/modifSuppUtilisateur/{id}', [UtilisateurController::class, 'modifSuppUtilisateurTrait'])->whereNumber('id')->name('modifSuppUtilisateurTrait');
+Route::post('/Utilisateurs/modifSuppUtilisateur/{id}', [UtilisateurController::class, 'modifSuppUtilisateurTrait'])->whereNumber('id')->name('modifSuppUtilisateurTrait');

@@ -7,7 +7,7 @@
         <div>
         <h6>Nom : {{$utilisateur->nom}} Prénom : {{ $utilisateur->prenom }} Pseudo : {{ $utilisateur->pseudo }} Sexe : {{ $utilisateur->sexe }}
         Fonction : {{ $utilisateur->fonction }} État du compte : {{ $utilisateur->etat_compte }}</h6>
-        <h6><a href="{{ route('modifSuppUtilisateur/',['id' => $utilisateur->id]) }}">Modifier l'utilisateur</a></h6>
+        <h6><a href="{{ route('modifSuppUtilisateur',['id' => $utilisateur->id]) }}">Modifier l'utilisateur</a></h6>
         </div>
     @endforeach
     @else
