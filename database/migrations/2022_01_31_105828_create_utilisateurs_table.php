@@ -22,6 +22,7 @@ class CreateUtilisateursTable extends Migration
             $table->string(column: "num_tel");
             $table->string(column: "mot_de_passe");
 
+            $table->unique(['pseudo']);
             $table->unsignedBigInteger('sexe_id');
             $table->foreign('sexe_id')->references('sexe_id')->on('sexes');
             $table->unsignedBigInteger('fonction_id');

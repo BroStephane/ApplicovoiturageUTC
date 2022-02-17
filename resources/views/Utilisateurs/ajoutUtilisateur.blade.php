@@ -13,20 +13,19 @@
     Mot de passe: <input type = "text" name="mot_de_passe">
   
 <select name="sexes" id="sexes">
-  <option value="" selected>selectionnez un sexe</option>
   @foreach ($sexes as $sexe)
-      <option value="{{ $sexe->sexe_libelle }}" >{{ $sexe->sexe_libelle }}</option>
-      
+      <option value="{{ $sexe->sexe_id}}" >{{ $sexe->sexe_libelle }}</option>
   @endforeach
-  
+</select>
+<select name="fonction" id="fonction">
+  @foreach ($fonctions as $fonctions)
+      <option value="{{ $fonctions->fonction_id }}" >{{ $fonctions->fonction_libelle }}</option> 
+  @endforeach
 </select>
 <select name="etat_compte" id="etat_compte">
-  <option value="" selected>selectionnez un etat</option>
   @foreach ($etat_comptes as $etat_comptes)
-      <option value="{{ $etat_comptes->etat_compte_libelle }}" >{{ $etat_comptes->etat_compte_libelle }}</option>
-      
+      <option value="{{ $etat_comptes->etat_compte_id }}" >{{ $etat_comptes->etat_compte_libelle }}</option> 
   @endforeach
-  
 </select>
   
 
