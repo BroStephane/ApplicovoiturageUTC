@@ -8,7 +8,7 @@
     <h6>Nom : {{$utilisateur->nom}} Prénom : {{ $utilisateur->prenom }} Pseudo : {{ $utilisateur->pseudo }} Sexe : {{ $utilisateur->sexe }}
     Fonction : {{ $utilisateur->fonction }} État du compte : {{ $utilisateur->etat_compte }}</h6>
 
-    <form method ="POST" action="{{ route('modifSuppUtilisateurTrait') }}">
+    <form method ="POST" action="{{ route('modifSuppUtilisateurTrait',['id' => $utilisateur->id]) }}">
         @csrf
         Nom: <input type = "text" name="nom" >
         Prenom :<input type = "text" name="prenom">

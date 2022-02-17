@@ -125,7 +125,7 @@ class UtilisateurController extends Controller
 
     public function modifSuppUtilisateurTrait(Request $request, $id)
     {
-        $utilisateur = new Utilisateurs();
+        $utilisateur = Utilisateurs::find($id);
         $utilisateur->nom = $request->nom;
         $utilisateur->prenom = $request->prenom;
         $utilisateur->pseudo = $request->pseudo;
