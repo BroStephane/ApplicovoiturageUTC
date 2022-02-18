@@ -14,23 +14,23 @@ class CreateUtilisateursTable extends Migration
     public function up()
     {
         Schema::create('utilisateurs', function (Blueprint $table) {
-            $table->id(column:"utilisateur_id");
-            $table->string(column:"nom");
-            $table->string(column:"prenom");
-            $table->string(column:"pseudo");
-            $table->string(column:"mail");
-            $table->string(column:"num_tel");
-            $table->string(column:"mot_de_passe");
-            
+            $table->id(column: "id");
+            $table->string(column: "nom");
+            $table->string(column: "prenom");
+            $table->string(column: "pseudo");
+            $table->string(column: "mail");
+            $table->string(column: "num_tel");
+            $table->string(column: "mot_de_passe");
+
             $table->unsignedBigInteger('sexe_id');
             $table->foreign('sexe_id')->references('sexe_id')->on('sexes');
             $table->unsignedBigInteger('fonction_id');
             $table->foreign('fonction_id')->references('fonction_id')->on('fonctions');
             $table->unsignedBigInteger('etat_compte_id');
             $table->foreign('etat_compte_id')->references('etat_compte_id')->on('etat_comptes');
-            
-            
-            
+
+
+
             $table->timestamps();
         });
     }
