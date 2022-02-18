@@ -8,26 +8,36 @@
     <h6>Nom : {{$utilisateur->nom}} Prénom : {{ $utilisateur->prenom }} Pseudo : {{ $utilisateur->pseudo }} Sexe : {{ $utilisateur->sexe }}
     Fonction : {{ $utilisateur->fonction }} État du compte : {{ $utilisateur->etat_compte }}</h6>
 
-    <button class="favorite styled"
-        type="button">
-    confirmer les modifications
-</button>
-    </div>
+    <form method ="POST" action="{{ route('modifSuppUtilisateurTrait',['id' => $utilisateur->id]) }}">
+        @csrf
+        Nom: <input type = "text" name="nom" >
+        Prenom :<input type = "text" name="prenom">
+        Pseudo: <input type = "text" name="pseudo">
+        Mail: <input type = "text" name="mail">
+        Numéro de téléphone: <input type = "text" name="num_tel">
+        Mot de passe: <input type = "text" name="mot_de_passe">
+      
+    <select name="sexes" id="sexes">
+      @foreach ($sexes as $sexe)
+          <option value="{{ $sexe->sexe_id}}" >{{ $sexe->sexe_libelle }}</option>
+      @endforeach
+    </select>
+    <select name="fonction" id="fonction">
+      @foreach ($fonctions as $fonctions)
+          <option value="{{ $fonctions->fonction_id }}" >{{ $fonctions->fonction_libelle }}</option> 
+      @endforeach
+    </select>
+    <select name="etat_compte" id="etat_compte">
+      @foreach ($etat_comptes as $etat_comptes)
+          <option value="{{ $etat_comptes->etat_compte_id }}" >{{ $etat_comptes->etat_compte_libelle }}</option> 
+      @endforeach
+    </select>
+      
+    
+    
+        <button type="submit">Créer</button>
 
-    <form action="/ma-page-de-traitement" method="post">
-        <div>
-            <label for="name">Nom :</label>
-            <input type="text" id="name" name="user_name">
-        </div>
-        <div>
-            <label for="mail">e-mail :</label>
-            <input type="email" id="mail" name="user_mail">
-        </div>
-        <div>
-            <label for="msg">Message :</label>
-            <textarea id="msg" name="user_message"></textarea>
-        </div>
-    </form>
+
 
 @endforeach
 @else

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatPivotTablePassager extends Migration
+class CreatPivotTablePassagers extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreatPivotTablePassager extends Migration
      */
     public function up()
     {
-        Schema::create('passager', function (Blueprint $table) {
+        Schema::create('passagers', function (Blueprint $table) {
             $table->foreignId('utilisateur_id')->references('utilisateur_id')->on('utilisateurs')->constrained()->onDelete('cascade');
             $table->foreignId('numero_trajet')->references('numero_trajet')->on('trajets')->constrained()->onDelete('cascade');
-
         });
     }
 
