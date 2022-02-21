@@ -26,10 +26,10 @@ Route::post('/Utilisateurs/ajoutUtilisateur', [UtilisateurController::class, 'aj
 
 Route::get('/Utilisateurs/modifSuppUtilisateur/{id}', [UtilisateurController::class, 'modifSuppUtilisateur'])->whereNumber('id')->name('modifSuppUtilisateur');
 Route::post('/Utilisateurs/modifSuppUtilisateur/{id}', [UtilisateurController::class, 'modifSuppUtilisateurTrait'])->whereNumber('id')->name('modifSuppUtilisateurTrait');
-=======
+
 
 
 Route::get('/Annonces', [AnnonceCovoitController::class, 'index'])->name('ConsultationAnnnonces');
-Route::get('/Annonces/Rechercher', [AnnonceCovoitController::class, 'rechercher'])->name('ConsultationAnnnonces2');
+Route::get('/Annonces/Rechercher', [AnnonceCovoitController::class, 'rechercher'])->name('ConsultationAnnnoncesRechercher');
 Route::get('/Annonces/Rechercher', [AnnonceCovoitController::class, 'RecupVilles'])->name('recupVille');
 Route::post('/Annonces', [AnnonceCovoitController::class, 'index'])->name('annonces.rechercher');

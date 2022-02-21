@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 
 class AnnonceCovoitController extends Controller
 {
+    #fonction qui permet de recuperer tous les annonces de covoiturage
     public function index(Request $request)
     {
         $villeDepart = $request->VilleDepart;
@@ -43,6 +44,8 @@ class AnnonceCovoitController extends Controller
         return view('Accueil/RechercherAnnonces');
     }
 
+    #fonction qui permet de recuperer les villes pour les utiliser dans un liste déroulante
+
     public function RecupVilles()
     {
         $villes = DB::table('Villes')
@@ -58,11 +61,10 @@ class AnnonceCovoitController extends Controller
         return view('Accueil/RechercherAnnonces',[
             "villes" => $villes //envoie de la requete dans la vue
         ]);
-        
-
-        
 
     }
        
+
+    
 }
 
